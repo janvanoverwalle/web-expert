@@ -17,7 +17,12 @@
 		$currentChapterString = sprintf('H%02d', $currentChapter);
 		$exercises = array();
 		
-		if (file_exists(__DIR__.'\\'.$currentChapterString.'')) {
+		if (file_exists(__DIR__.'\\'.$currentChapterString)) {			
+			// Only print the Chpater title if there's a file in the directory
+			if (!directoryContains(__DIR__.'\\'.$currentChapterString, array('html', 'php'))) {
+				continue;
+			}
+			
 			echo "<div>", "\r\n";
 			echo h('Hoofdstuk '.$currentChapter, 2), "\r\n";
 			$filename = strtolower($currentChapterString).'oef'.sprintf('%02d', count($exercises) + 1).'.html';
@@ -52,5 +57,17 @@
 		$result .= "</ul>\r\n";
 		
 		return $result;
+	}
+	
+	function directoryContains($dir, $extensions = array()) { 
+		if (empty($extensions) || !is_array($extensions) || !is_dir($dir))
+			return false;
+		
+		foreach ($extensions as $ext) {
+			if (count(glob($dir . '/*.' . $ext)) > 0)
+				return true;
+		}
+		
+		return false;
 	}
 ?>
