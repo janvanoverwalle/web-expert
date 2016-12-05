@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="h03">
+	<head>
+		<title>H3 - Oef 3</title>
+		<link href="../css/bootstrap.css" rel="stylesheet" />
+		<script src="../js/vendor/angular/angular.js"></script>
+		<script src="h03.js"></script>
+	</head>
+	<body>
+		<div class="container" ng-controller="oef03 as ctrlr">
+			<h1>Artikelen</h1>
+			<table id="articles" class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th>Nummer</th>
+						<th>Omschrijving</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="article in ctrlr.articles" ng-click="ctrlr.onClickArticle(article)">
+						<td>
+							{{ article.number }}
+						</td>
+						<td>
+							{{ article.description }}
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>

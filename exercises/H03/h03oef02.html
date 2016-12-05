@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="h03">
 	<head>
-		<title>H3 - Oef 1</title>
+		<title>H3 - Oef 2</title>
 		<link href="../css/bootstrap.css" rel="stylesheet" />
 		<script src="../js/vendor/angular/angular.js"></script>
 		<script src="h03.js"></script>
@@ -9,11 +9,12 @@
 	<body>
 		<div class="container" ng-controller="oef02">
 			<h1>Calculator</h1>
-			<form name="calcForm">
-				<input type="number" name="a" ng-model="calc.a" required>
-				<input type="number" name="b" ng-model="calc.b" required>
-				<input type="submit" ng-click="sum(calc)" value="Sum Up">
-			<form>
+			<input type="number" name="a" ng-model="a" required>
+			<input type="number" name="b" ng-model="b" required>
+			<button class="btn btn-lg btn-primary" ng-click="sum()" value="Add Up">
+			<p>
+				{{ result }}
+			</p>
 		</div>
 	</body>
 </html>
