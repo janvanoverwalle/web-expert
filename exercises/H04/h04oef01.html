@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="apph04">
+	<head>
+		<title>H4 - Oef 1</title>
+		<!-- Stylesheets -->
+		<link href="css/autoweb.css" rel="stylesheet" />
+		
+		<!-- Angular -->
+		<script src="../js/vendor/angular/angular.js"></script>
+		<script src="../js/vendor/angular-route/angular-route.js"></script>
+		
+		<!-- Custom scripts -->
+		<script src="apph04.js"></script>
+		<script src="controller/oef01HomeController.js"></script>
+		<script src="controller/oef01DetailController.js"></script>
+		<script src="controller/oef01PartnersController.js"></script>
+	</head>
+	<body>
+		<center>
+			<div id="container">
+				<div id="header"></div>
+				<div id="middle">
+					</br>
+					<div id="leftmiddle" ng-view>
+						<!-- Page content goes here! -->
+					</div>
+					</br>
+				</div>
+				<div id="footer">
+					<table width="50%">
+						<th><a href="#/">Home</a></th>
+						<th><a href="#/partners">Mercedes Partners</a></th>
+					</table>
+				</div>
+			</div>
+		</center>
+	</body>
+</html>

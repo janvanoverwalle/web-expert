@@ -1,4 +1,5 @@
 var app = angular.module('h03', []);
+
 app.controller('oef01',
 	function ($scope) {
 		// 1. array met artikelen
