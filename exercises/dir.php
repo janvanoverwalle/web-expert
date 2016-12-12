@@ -13,7 +13,7 @@
 		echo "</div>", "\r\n";
 	}
 	
-	for ($currentChapter  = 1; $currentChapter  < 9; $currentChapter ++) {
+	for ($currentChapter  = 1; $currentChapter  < 9; $currentChapter++) {
 		$currentChapterString = sprintf('H%02d', $currentChapter);
 		$exercises = array();
 		
@@ -25,13 +25,15 @@
 			
 			echo "<div>", "\r\n";
 			echo h('Hoofdstuk '.$currentChapter, 2), "\r\n";
-			$filename = strtolower($currentChapterString).'oef'.sprintf('%02d', count($exercises) + 1).'.html';
 			
-			while (file_exists(__DIR__.'\\'.$currentChapterString.'\\'.$filename)) {
-				$text = 'Oefening '.(count($exercises) + 1);
-				$exercises[] = ahref($currentChapterString.'/'.$filename, $text);
-				$filename = strtolower($currentChapterString).'oef'.sprintf('%02d', count($exercises) + 1).'.html';
+			for ($currentExercise = 1; $currentExercise < 10; $currentExercise++) {
+				$filename = strtolower($currentChapterString).'oef'.sprintf('%02d', $currentExercise).'.html';
+				if (file_exists(__DIR__.'\\'.$currentChapterString.'\\'.$filename)) {
+					$text = 'Oefening '.$currentExercise;
+					$exercises[] = ahref($currentChapterString.'/'.$filename, $text);
+				}
 			}
+			
 			echo ulist($exercises);
 			echo "</div>", "\r\n";
 		}
@@ -64,8 +66,10 @@
 			return false;
 		
 		foreach ($extensions as $ext) {
-			if (count(glob($dir . '/*.' . $ext)) > 0)
+			$filesFound = count(glob($dir . '/*.' . $ext));
+			if ($filesFound > 0) {
 				return true;
+			}
 		}
 		
 		return false;

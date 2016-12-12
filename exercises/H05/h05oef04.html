@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>ng-slide-down demo</title>
+  <script src="slidedown/angular.js"></script>
+  <script src="slidedown/myapp.js"></script>
+  <script src="slidedown/ng-slide-down.js"></script>
+  <link rel="stylesheet" href="slidedown/style.css"/>
+</head>
+<body ng-controller="MyCtrl"  ng-cloak>
+  <div ng-click="widgetExpandedLazy = !widgetExpandedLazy" class="head">
+    Lazy, initial false
+  </div>
+  <div ng-slide-down="widgetExpandedLazy" lazy-render duration="1">
+    <div class="content">
+      Some awesome content here
+    </div>
+  </div>
+  <div class="footer">
+    After content
+  </div>
+  <div ng-click="widgetExpanded = !widgetExpanded" class="head">
+    Non lazy, initial false
+  </div>
+  <div ng-slide-down="widgetExpanded" duration="1">
+    <div class="content">
+      Some awesome content here
+    </div>
+  </div>
+  <div class="footer">
+    After content
+  </div>
+  <div ng-init="widgetExpandedLazyTrue = true" ng-click="widgetExpandedLazyTrue = !widgetExpandedLazyTrue" class="head">
+    Lazy, initial true
+  </div>
+  <div ng-slide-down="widgetExpandedLazyTrue" lazy-render duration="1">
+    <div class="content">
+      Some awesome content here
+    </div>
+  </div>
+  <div class="footer">
+    After content
+  </div>
+  <div ng-init="widgetExpandedTrue = true" ng-click="widgetExpandedTrue = !widgetExpandedTrue" class="head">
+    Non lazy, initial true
+  </div>
+  <div ng-slide-down="widgetExpandedTrue" duration="1">
+    <div class="content">
+      Some awesome content here
+    </div>
+  </div>
+  <div class="footer">
+    After content
+  </div>
+</body>
+</html>

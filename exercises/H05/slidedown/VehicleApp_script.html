@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<link href="bootstrap.css" rel="stylesheet" />
+	<script src="angular.js"></script>
+
+</head>
+<body>
+
+<div ng-app="vehicleApp" ng-controller="VehicleController">
+    <div ng-repeat="vehicle in vehicles">
+        {{ vehicle.name }}
+        <ul>
+            <li ng-repeat="(attribute, value) in vehicle.parts">
+                {{attribute}} ({{value}})
+            </li>
+        </ul>
+    </div>
+</div>
+
+	<script>
+		// Een controller is gewoon een JavaScript-functie		
+		
+		var vehicleApp = angular.module("vehicleApp", []);
+
+		vehicleApp.controller('VehicleController', 
+			function ($scope) {
+				$scope.vehicles = [
+				{
+					id: 0,
+					name: "car",
+					parts: {
+							wheels: 4,
+							doors: 4
+							}
+				}, 
+				{
+					id: 1,
+					name: "plane",
+					parts: {
+							wings: 2,
+							doors: 2
+							}
+				}, 
+				{
+					id: 2,
+					name: "boat",
+					parts: {
+							doors: 1
+							}
+				}];
+			});			
+			
+	</script>
+</body>
+</html>
