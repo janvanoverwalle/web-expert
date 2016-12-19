@@ -1,4 +1,6 @@
 ﻿(function () {
+	'use strict';
+
 	angular.module('apph04', ['ngRoute']).config(moduleConfig);
 	
 	moduleConfig.$inject = ['$routeProvider'];
